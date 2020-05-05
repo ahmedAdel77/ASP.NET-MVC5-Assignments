@@ -1,0 +1,44 @@
+﻿@model Employee
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        @*<form method="post">
+            Your Name: <input type="text" name="name" />
+            Your Salary: <input type="number" name="salary" />
+            Your Gender: <select>
+                <option value="gender">Male</option>
+                <option value="gender">Female</option>
+            </select>
+
+            <input type="submit" value="Submit" />
+        </form>*@
+
+
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            @Html.Label("Name: ");
+            @Html.TextBoxFor(e => e.Name);
+
+            @Html.Label("Salary: ");
+            @Html.Editor("Salary")
+            @*@Html.TextBoxFor(e => e.Salary);*@
+
+            @Html.Label("Gender: ");
+            @Html.EnumDropDownListFor(e => e.Gender);
+            @*@Html.DropDownListFor(e => e.Gender, new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender");*@
+            
+            <input type="submit" value="Submit" />
+        }
+
+
+    </div>
+</body>
+</html>
